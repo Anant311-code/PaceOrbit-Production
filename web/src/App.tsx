@@ -1,10 +1,9 @@
 
 import { useEffect, useState } from "react";
 import {
-  Activity, ArrowDownRight, ArrowUpRight, Award, Bell,
-  Bike, CalendarDays, Check, ChevronRight, Compass,
-  Footprints, Heart, MapPin, Menu, MessageCircle,
-  MoreHorizontal, Play, Plus, Search, Settings, Sparkles,
+  Activity, ArrowDownRight, ArrowUpRight, Award,
+  Bike, CalendarDays, ChevronRight, Compass,
+  Footprints, Heart, MapPin, Menu,Play, Plus, Search, Settings, Sparkles,
   Target, Timer, Trophy, Users, X, Zap
 } from "lucide-react";
 import {
@@ -199,7 +198,6 @@ const remainingDistance = Math.max(
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [liked, setLiked] = useState<(number | string)[]>([]);
-  const [selectedActivity, setSelectedActivity] = useState("Running");
   const [selectedActivityId, setSelectedActivityId] = useState<string | null>(null);
   
 const [savedActivities, setSavedActivities] = useState<FeedActivity[]>([]);
