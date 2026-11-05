@@ -1,0 +1,21 @@
+import { Router } from "express";
+import {
+  getChallenges,
+  getMyChallenges,
+  joinChallenge,
+  leaveChallenge,
+  getChallengeLeaderboard,
+} from "../controllers/challenge.controller.js";
+import { authenticateToken } from "../middleware/auth.middleware.js";
+
+const router = Router();
+
+router.use(authenticateToken);
+
+router.get("/", getChallenges);
+router.get("/my", getMyChallenges);
+router.get("/:id/leaderboard", getChallengeLeaderboard);
+router.post("/:id/join", joinChallenge);
+router.delete("/:id/leave", leaveChallenge);
+
+export default router;

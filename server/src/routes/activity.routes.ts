@@ -1,0 +1,20 @@
+
+import { Router } from "express";
+import {
+  createActivity,
+  getActivities,
+  getActivityById,
+  deleteActivity,
+} from "../controllers/activity.controller.js";
+import { authenticateToken } from "../middleware/auth.middleware.js";
+
+const router = Router();
+
+router.use(authenticateToken);
+
+router.post("/", createActivity);
+router.get("/", getActivities);
+router.get("/:id", getActivityById);
+router.delete("/:id", deleteActivity);
+
+export default router;

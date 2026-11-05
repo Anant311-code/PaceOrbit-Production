@@ -1,0 +1,308 @@
+
+.achievement-celebration-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(34, 29, 48, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.achievement-celebration-modal {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 430px;
+  padding: 35px 30px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  background: linear-gradient(160deg, #fff 0%, #fbf7f4 100%);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.achievement-celebration-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 11px;
+  background: #f1edf4;
+  color: #716a7d;
+  cursor: pointer;
+}
+
+.celebration-overline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #b77a54;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.celebration-medal-stage {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  margin: 15px auto 7px;
+}
+
+.celebration-ring {
+  position: absolute;
+  border: 1px solid rgba(145, 128, 197, 0.35);
+  border-radius: 50%;
+}
+
+.celebration-ring-one {
+  width: 180px;
+  height: 180px;
+  border-style: dashed;
+}
+
+.celebration-ring-two {
+  width: 215px;
+  height: 215px;
+  border-color: rgba(241, 138, 101, 0.25);
+}
+
+.celebration-medal {
+  position: relative;
+  z-index: 2;
+  width: 126px;
+  height: 126px;
+  display: grid;
+  place-items: center;
+  border: 5px solid #fff5e9;
+  border-radius: 40px;
+  background: linear-gradient(145deg, #f6c895, #e58a67);
+  color: #fff;
+  box-shadow:
+    0 16px 35px rgba(209, 127, 91, 0.3),
+    inset 0 2px 8px rgba(255, 255, 255, 0.35);
+}
+
+.celebration-sparkle {
+  position: absolute;
+  z-index: 3;
+  color: #d99a54;
+}
+
+.sparkle-left {
+  top: 42px;
+  left: 26px;
+}
+
+.sparkle-right {
+  right: 22px;
+  bottom: 45px;
+  color: #9180c5;
+}
+
+.celebration-copy {
+  margin-top: 12px;
+}
+
+.celebration-congratulations {
+  color: #d98161;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.celebration-copy h2 {
+  margin: 8px 0;
+  color: #302b43;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.celebration-copy p {
+  max-width: 310px;
+  margin: 0 auto;
+  color: #8d8698;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.celebration-points {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 14px;
+  border: 1px solid #eee4dc;
+  border-radius: 16px;
+  background: #fff8f1;
+  text-align: left;
+}
+
+.celebration-points-icon {
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #f4e5d3;
+  color: #bd8751;
+}
+
+.celebration-points > div:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+
+.celebration-points strong {
+  display: block;
+  color: #302b43;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.celebration-points span {
+  display: block;
+  margin-top: 3px;
+  color: #9b91a0;
+  font-size: 10px;
+}
+
+.celebration-points-check {
+  color: #6d987b;
+}
+
+.celebration-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 17px;
+}
+
+.celebration-pagination span {
+  width: 6px;
+  height: 6px;
+  border-radius: 10px;
+  background: #ded8e6;
+  transition: width 0.2s ease;
+}
+
+.celebration-pagination span.active {
+  width: 20px;
+  background: #9180c5;
+}
+
+.celebration-continue {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 15px;
+  border: 0;
+  border-radius: 14px;
+  background: #302b43;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 850;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.celebration-continue:hover {
+  background: #51466b;
+  transform: translateY(-2px);
+}
+
+.celebration-brand {
+  margin-top: 18px;
+  color: #b4adba;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.achievement-confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.achievement-confetti span {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 13px;
+  border-radius: 3px;
+  background: #f18a65;
+  animation: achievement-confetti-fall 2.5s linear infinite;
+}
+
+.achievement-confetti span:nth-child(3n) {
+  background: #a899d2;
+  width: 6px;
+  height: 9px;
+}
+
+.achievement-confetti span:nth-child(3n + 1) {
+  background: #e5bd83;
+  border-radius: 50%;
+}
+
+.achievement-confetti span:nth-child(3n + 2) {
+  background: #a8c9b7;
+}
+
+@keyframes achievement-confetti-fall {
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievement-celebration-modal {
+    padding: 32px 20px 21px;
+    border-radius: 23px;
+  }
+
+  .celebration-medal-stage {
+    transform: scale(0.9);
+    margin-top: 4px;
+    margin-bottom: -5px;
+  }
+
+  .celebration-copy h2 {
+    font-size: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .achievement-confetti span,
+  .celebration-ring {
+    animation: none !important;
+  }
+}
