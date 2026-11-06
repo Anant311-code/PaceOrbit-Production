@@ -449,13 +449,15 @@ const filteredActivities = savedActivities.filter((item) =>
               const Icon = item.icon;
               return (
                 <button
-                  key={item.name}
-                  className={`nav-item ${page === item.name ? "selected" : ""}`}
-                  onClick={() => changePage(item.name)}
-                >
-                  <Icon size={16} />
-                  {item.name}
-                </button>
+  key={item.name}
+  className={`nav-item ${page === item.name ? "selected" : ""}`}
+  onClick={() => changePage(item.name)}
+  title={item.name}
+  aria-label={item.name}
+>
+  <Icon size={15} />
+  <span>{item.name}</span>
+</button>
               );
             })}
           </nav>

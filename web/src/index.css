@@ -4654,3 +4654,122 @@ html {
     font-size: 19px;
   }
 }
+
+/* =========================================
+   PACEORBIT - RESPONSIVE DESKTOP NAVBAR
+========================================= */
+
+.header-inner {
+  width: 100%;
+  max-width: 1600px;
+  height: 68px;
+  padding: 0 clamp(16px, 2vw, 30px);
+  gap: 12px;
+}
+
+.brand {
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+}
+
+.brand-name {
+  font-size: 17px;
+}
+
+.brand-caption {
+  font-size: 8px;
+  letter-spacing: 1.3px;
+}
+
+.desktop-nav {
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+  gap: 2px;
+}
+
+.nav-item {
+  flex-shrink: 0;
+  white-space: nowrap;
+  gap: 5px;
+  padding: 9px 8px;
+  font-size: 10px;
+}
+
+.nav-item svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.header-right {
+  flex-shrink: 0;
+  gap: 7px;
+}
+
+.search-field {
+  width: clamp(125px, 12vw, 165px);
+  flex-shrink: 1;
+}
+
+.auth-logout-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 9px 11px;
+  font-size: 11px;
+}
+
+/* Compact navigation for smaller desktop screens */
+@media (max-width: 1180px) and (min-width: 761px) {
+  .header-inner {
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .desktop-nav {
+    gap: 1px;
+  }
+
+  .nav-item {
+    padding: 10px 9px;
+    gap: 0;
+    font-size: 0;
+  }
+
+  .nav-item svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .search-field {
+    width: 125px;
+  }
+
+  .header-right {
+    gap: 6px;
+  }
+}
+
+/* Existing mobile layout remains intact */
+@media (max-width: 760px) {
+  .header-inner {
+    height: 66px;
+    padding: 0 12px;
+    gap: 6px;
+  }
+
+  .header-right {
+    gap: 6px;
+  }
+
+  .auth-logout-button {
+    padding: 8px 9px;
+    font-size: 10px;
+  }
+}
