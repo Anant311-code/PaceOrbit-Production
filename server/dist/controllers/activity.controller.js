@@ -1,6 +1,7 @@
 import { Prisma } from "@prisma/client";
 import { z } from "zod";
 import { prisma } from "../config/prisma.js";
+import { checkAndUnlockAchievements } from "../utils/achievement.js";
 const activitySchema = z.object({
     type: z.enum(["Running", "Cycling", "Walking"]),
     distance: z.number().positive().max(1000),
@@ -11,6 +12,15 @@ const activitySchema = z.object({
     routePoints: z
         .array(z.tuple([z.number(), z.number()]))
         .max(20000)
+        .nullable()
+        .optional(),
+    splits: z
+        .array(z.object({
+        kilometer: z.number().int().positive(),
+        duration: z.number().int().positive(),
+        pace: z.string().max(20),
+    }))
+        .max(1000)
         .nullable()
         .optional(),
 });
@@ -32,7 +42,7 @@ export async function createActivity(req, res) {
             });
             return;
         }
-        const { routePoints, ...activityData } = parsed.data;
+        const { routePoints, splits, ...activityData } = parsed.data;
         const activity = await prisma.activity.create({
             data: {
                 ...activityData,
@@ -42,12 +52,27 @@ export async function createActivity(req, res) {
                     : routePoints === undefined
                         ? undefined
                         : routePoints,
+                splits: splits === null
+                    ? Prisma.DbNull
+                    : splits === undefined
+                        ? undefined
+                        : splits,
             },
         });
+        // Activity is already saved. Achievement errors must not
+        // prevent the successful activity response.
+        let achievementResult = null;
+        try {
+            achievementResult = await checkAndUnlockAchievements(req.userId);
+        }
+        catch (achievementError) {
+            console.error("Automatic achievement check error:", achievementError);
+        }
         res.status(201).json({
             success: true,
             message: "Activity saved successfully.",
             activity,
+            achievements: achievementResult,
         });
     }
     catch (error) {

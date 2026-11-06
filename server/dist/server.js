@@ -4,6 +4,10 @@ import dotenv from "dotenv";
 import { prisma } from "./config/prisma.js";
 import authRoutes from "./routes/auth.routes.js";
 import activityRoutes from "./routes/activity.routes.js";
+import communityRoutes from "./routes/community.routes.js";
+import challengeRoutes from "./routes/challenge.routes.js";
+import notificationRoutes from "./routes/notification.routes.js";
+import achievementRoutes from "./routes/achievement.routes.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,6 +17,11 @@ app.use(cors({
 }));
 app.use(express.json({ limit: "10mb" }));
 app.use("/api/activities", activityRoutes);
+app.use("/api/activities", activityRoutes);
+app.use("/api/community", communityRoutes);
+app.use("/api/challenges", challengeRoutes);
+app.use("/api/notifications", notificationRoutes);
+app.use("/api/achievements", achievementRoutes);
 app.get("/", (_req, res) => {
     res.json({
         success: true,
